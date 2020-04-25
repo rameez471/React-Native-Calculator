@@ -1,36 +1,95 @@
-import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import React,{Component} from 'react';
+import {SectionList,StyleSheet,Text,View, Button } from 'react-native';
 
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
-});
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
-    </View>
-  );
+class App extends Component{
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={styles.result}>
+          <Text style={styles.resultText}>11*11</Text>
+        </View>
+        <View style={styles.calculation}>
+          <Text style={styles.calculationText}>121</Text>
+        </View>
+        <View style={styles.buttons}>
+            <View style={styles.numbers}>
+              <View style={styles.row}>
+                <Button title='0'/>
+                <Button title='1'/>
+                <Button title='2'/>
+              </View>
+              <View style={styles.row}>
+                <Button title='4'/>
+                <Button title='5'/>
+                <Button title='6'/>
+              </View>
+              <View style={styles.row}>
+                <Button title='7'/>
+                <Button title='8'/>
+                <Button title='9'/>
+              </View>
+              <View style={styles.row}>
+                <Button title='0'/>
+                <Button title='0'/>
+                <Button title='0'/>
+              </View>
+            </View>
+            <View style={styles.operations}>
+                <Button title='+'/>
+                <Button title='+'/>
+                <Button title='+'/>
+                <Button title='+'/>
+            </View>
+        </View>
+      </View>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const styles=StyleSheet.create({
+  container:{
+    flex:1,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  calculationText:{
+    fontSize:14,
+    color:'white'
+  },  
+  resultText:{
+    fontSize:20,
+    color:'white'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  row:{
+    flexDirection:'row',
+    flex:1,
+    justifyContent:'space-around',
+    alignItems:'center'
   },
-});
+  result:{
+    flex:2,
+    backgroundColor:'red',
+    justifyContent:'center',
+    alignItems:'flex-end'
+  },
+  calculation:{
+    flex:1,
+    backgroundColor:'green',
+    justifyContent:'center',
+    alignItems:'flex-end'
+  },
+  buttons:{
+    flexGrow:7,
+    flexDirection:'row'
+  },
+  numbers:{
+    flex:3,
+    backgroundColor:'yellow'
+  },
+  operations:{
+    flex:1,
+    justifyContent:'space-around',
+    alignItems:'stretch',
+    backgroundColor:'black'
+  }
+})
+
+export default App;
